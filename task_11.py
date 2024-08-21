@@ -5,17 +5,23 @@ class Dessert:
     @property
     def name(self):
         return self._name
-    @name.setter
 
+    @name.setter
     def name(self, value):
+        if not isinstance(value,str):
+            raise ValueError
         self._name = value
 
     @property
     def calories(self):
         return self._calories
+
     @calories.setter
     def calories(self, value):
+        if not isinstance(value,(int, float)) or value < 0:
+            raise ValueError
         self._calories = value
+
     def is_healthy(self):
         return self.calories < 200
 
