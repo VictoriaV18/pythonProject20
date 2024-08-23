@@ -1,6 +1,6 @@
 def sort_list(list):
    if not list:
-       return None
+       return []
    max_val = max(list)
    min_val = min(list)
    list = [max_val if x == min_val else min_val if x == max_val else x for x in list]

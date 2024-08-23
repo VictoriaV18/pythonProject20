@@ -8,8 +8,6 @@ class Dessert:
 
     @name.setter
     def name(self, value):
-        if not isinstance(value,str):
-            raise ValueError
         self._name = value
 
     @property
@@ -18,11 +16,11 @@ class Dessert:
 
     @calories.setter
     def calories(self, value):
-        if not isinstance(value,(int, float)) or value < 0:
-            raise ValueError
         self._calories = value
 
     def is_healthy(self):
+        if isinstance(self.calories,str):
+            return False
         return self.calories < 200
 
 
@@ -44,7 +42,7 @@ class JellyBean(Dessert):
         self._flavor = value
 
     def is_delicious(self):
-        return self._flavor.lower() != 'black licorice'
+        return False if self._flavor.lower() == 'black licorice' else super().is_delicious()
 
 jelly_bean1 = JellyBean('Jelly Bean', 160, 'black licorice')
 print(jelly_bean1.is_delicious())

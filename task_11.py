@@ -1,5 +1,5 @@
 class Dessert:
-    def __init__(self, name = '', calories=0):
+    def __init__(self, name = None, calories=0):
         self._name = name
         self._calories = calories
     @property
@@ -8,8 +8,6 @@ class Dessert:
 
     @name.setter
     def name(self, value):
-        if not isinstance(value,str):
-            raise ValueError
         self._name = value
 
     @property
@@ -18,11 +16,11 @@ class Dessert:
 
     @calories.setter
     def calories(self, value):
-        if not isinstance(value,(int, float)) or value < 0:
-            raise ValueError
         self._calories = value
 
     def is_healthy(self):
+        if isinstance(self._calories,str):
+            return False
         return self.calories < 200
 
 

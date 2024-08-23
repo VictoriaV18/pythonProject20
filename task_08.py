@@ -1,4 +1,4 @@
-def multiply_numbers(inputs):
+def multiply_numbers(inputs=None):
     if not isinstance(inputs, str):
         inputs = str(inputs)
     total = 1
@@ -8,7 +8,7 @@ def multiply_numbers(inputs):
             has_digits = True
             total *= int(char)
     return total if has_digits else None
-print(multiply_numbers(''))
+print(multiply_numbers())
 print(multiply_numbers('ss'))
 print(multiply_numbers('1234'))
 print(multiply_numbers('sssdd34'))
