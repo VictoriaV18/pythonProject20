@@ -1,7 +1,9 @@
-def coincidence(list,range):
-    if list is None or range is None:
-        return ()
-    return [x for x in list if range[0]<=x<=range[1]]
-list_ex = ()
-range_ex = ()
-print(coincidence(list_ex,range_ex))
+def coincidence(lst=None, rng=None):
+
+    if lst is None or rng is None:
+        return []
+
+    return [item for item in lst if isinstance(item, (int, float)) and item >= rng.start and item < rng.stop]
+print(coincidence([1, 2, 3, 4, 5], range(3, 6))) # => [3, 4, 5]
+print(coincidence()) # => []
+print(coincidence([None, 1, 'foo', 4, 2, 2.5], range(1, 4))) # => [1, 2, 2.5]

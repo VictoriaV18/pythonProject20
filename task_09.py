@@ -1,3 +1,4 @@
+
 def connect_dict(dict1, dict2):
     s1 = sum(v for v in dict1.values() if isinstance(v, (int, float)))
     s2 = sum(v for v in dict2.values() if isinstance(v, (int, float)))
@@ -9,7 +10,7 @@ def connect_dict(dict1, dict2):
         priority_dict = dict2
         secondary_dict = dict1
 
-     # Фильтрация и объединение словарей
+    # Фильтрация и объединение словарей
     combined_dict = {k: v for k, v in priority_dict.items() if v >= 10}
     combined_dict.update({k: v for k, v in secondary_dict.items() if v >= 10 and k not in combined_dict})
 
